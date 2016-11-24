@@ -1,3 +1,15 @@
+#' @title MRMdataMerge
+#' @description Merge different MRM batch datasets into one dataset.
+#' @author Xiaotao Shen
+#' \email{shenxt@@sioc.ac.cn}
+#' @param ... The MRM data to be merged.
+#' @param path Directory for reading data and outputing results.
+#' @param merge.term.index Use which term to merge datasets?
+#' @param tags.index Which columna are tags in your data?
+#' @param tags.same.in.datasets Which columna are same in you datasets?And those information only remain one in merging.
+#' @param tags.should.be.mean.in.datasets Which columna should be averaged in the mergin
+#' @export
+
 MRMdataMerge <- function(...,
                          path =NULL,
                          merge.method = "name",
