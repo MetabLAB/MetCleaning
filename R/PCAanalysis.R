@@ -314,7 +314,7 @@ PCAanalysis <- function(MetFlowData = MetFlowData,
 
   if (ellipse)
   {
-    require(ellipse)
+    # require(ellipse)
     lines(ellipse::ellipse(
       0,
       scale = c(sd(x), sd(y)),

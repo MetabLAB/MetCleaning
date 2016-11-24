@@ -107,7 +107,7 @@ HeatMap <- function(MetFlowData = MetFlowData,
       width = width,
       height = height)
   par(mar = c(5,5,4,2))
-  pheatmap(
+  pheatmap::pheatmap(
     t(data1),
     color = colorRampPalette(c("green", "black", "red"))(1000),
     scale = "none",

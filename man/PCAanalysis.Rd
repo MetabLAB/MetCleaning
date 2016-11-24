@@ -9,7 +9,8 @@ PCAanalysis(MetFlowData = MetFlowData, QC = FALSE, log.scale = FALSE,
   "firebrick1", "tan1", "deepskyblue", "cyan", "gray48", "chocolate4",
   "darkmagenta", "indianred1"), shape = c(17, 19, 15, 18, 2, 8, 11, 13, 12,
   14), cex.lab = 1.3, cex.axis = 1.3, cex = 1.3, cex.text = 1,
-  width = 7, height = 7, text = FALSE, ellipse = TRUE)
+  width = 7, height = 7, text = FALSE, ellipse = TRUE, xlim1 = NULL,
+  ylim1 = NULL)
 }
 \arguments{
 \item{MetFlowData}{MetFlowData.}
@@ -31,6 +32,8 @@ defaulit is "auto".}
 \item{text}{Add text in PCA score plot or not? Deefault is FALSE.}
 
 \item{ellipse}{Add ellipse in PCA score plot or not? Deefault is TRUE.}
+
+\item{xlim1_ylim1}{The x and y axis limitation. Default is NULL.}
 }
 \value{
 PCA score plot.

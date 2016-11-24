@@ -65,7 +65,7 @@ VolcanoPlot <- function(MetFlowData = MetFlowData,
     x1 <- log(x1, 2)
     x.lab1 <- "log2(Fold change)"
   }
-  if (x == "p") {
+  if (x == "p" | x == "p.correct") {
     x1 <- -log(x1, 10)
     x.lab1 <- "-log10(p value)"
   }
@@ -79,7 +79,7 @@ VolcanoPlot <- function(MetFlowData = MetFlowData,
     y1 <- log(y1, 2)
     y.lab1 <- "log2(Fold change)"
   }
-  if (y == "p") {
+  if (y == "p" | y == "p.correct") {
     y1 <- -log(y1, 10)
     y.lab1 <- "-log10(p value)"
   }
@@ -93,7 +93,7 @@ VolcanoPlot <- function(MetFlowData = MetFlowData,
     if (z == "foldchange") {
       z1 <- log(z1, 2)
     }
-    if (z == "p") {
+    if (z == "p" | z == "p.correct") {
       z1 <- -log(z1, 10)
     }
     if (z == "vip") {
@@ -110,7 +110,7 @@ VolcanoPlot <- function(MetFlowData = MetFlowData,
     stop("Please select marker first (Using MarkerSelection function)!!!")
   }
 
-  colour <- rep(NA, length(p))
+  colour <- rep(NA, length(x1))
   colour[marker.index] <- col[2]
   colour[is.na(colour)] <- col[1]
 
@@ -137,7 +137,8 @@ VolcanoPlot <- function(MetFlowData = MetFlowData,
     pch  = 19,
     cex = cexa
   )
-  # abline(h = -log(p.cutoff,10), lty = 2)
+  abline(v = 0, lty = 2)
+  abline(h = -log(p.cutoff,10), lty = 2)
   # abline(v = log(f.cutoff1,2), lty = 2)
   # abline(v = log(f.cutoff2,2), lty = 2)
   vip.mean <- (min(z1) + max(z1)) / 2

@@ -11,6 +11,7 @@
 MarkerShow <- function(MetFlowData = MetFlowData,
                        beeswarm = TRUE,
                        path = NULL) {
+  # browser()
   options(warn = -1)
   if (is.null(path)) {
     path <- getwd()
@@ -25,9 +26,10 @@ MarkerShow <- function(MetFlowData = MetFlowData,
   if (all(colnames(tags) != "is.marker")) {
     stop("Please select marker first(use MarkerSelection function)!!!")
   }
+
   is.marker <- tags[, "is.marker"]
   marker.index <- which(is.marker == "yes")
-  marker.name <- tags[marker.index, "name"]
+  feature.name <- tags[, "name"]
   group <- subject.info[, "group"]
   subject.name <- subject.info[, 1]
   group.unique <- sort(unique(group))
@@ -38,14 +40,14 @@ MarkerShow <- function(MetFlowData = MetFlowData,
   }
   names(info) <- group.unique
 
-  for (i in 1:length(marker.index)) {
+  for (i in marker.index) {
     temp.data <- list()
     for (j in 1:length(info)) {
       temp.data[[j]] <-
-        as.numeric(subject[i, ])[match(info[[j]], subject.name)]
+        as.numeric(subject[i,])[match(info[[j]], subject.name)]
     }
     names(temp.data) <- names(info)
-    pdf(file.path(path, paste(marker.name[i], "boxplot.pdf")))
+    pdf(file.path(path, paste(feature.name[i], "boxplot.pdf")))
     par(mar = c(5, 5, 4, 2))
     boxplot(
       temp.data,
@@ -55,7 +57,10 @@ MarkerShow <- function(MetFlowData = MetFlowData,
       cex.axis = 1.3
     )
     if (beeswarm) {
-      beeswarm(temp.data, pch = 19, add = T, col = "grey")
+      beeswarm(temp.data,
+               pch = 19,
+               add = T,
+               col = "grey")
     }
     dev.off()
   }

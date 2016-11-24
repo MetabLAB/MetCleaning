@@ -181,8 +181,8 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
       ylab = "MSEP",
       cex.lab = 1.5,
       cex.axis = 1.3,
-      ylim= c(0.8 * min(msep[c(1, 2), 2:(comps.number + 1)]),
-              1.2 * max(msep[c(1, 2), 2:(comps.number + 1)]))
+      ylim= c(0.99 * min(msep[c(1, 2), 2:(comps.number + 1)]),
+              1.1 * max(msep[c(1, 2), 2:(comps.number + 1)]))
     )
     points(
       x = c(1:comps.number),

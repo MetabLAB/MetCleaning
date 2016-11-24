@@ -43,6 +43,6 @@ The MV imputation in metabolomics data can see in
 The MV imputation methods can see in
 \code{\link[impute]{impute.knn}}, \code{\link[missForest]{missForest}},
 \code{\link[pcaMethods]{bpca}}, \code{\link[pcaMethods]{ppca}} and
-\code{\link[pcaMethods]{svf}}.
+\code{\link[pcaMethods]{svd}}.
 }
 

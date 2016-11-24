@@ -8,7 +8,8 @@ PLSanalysis(MetFlowData = MetFlowData, log.scale = 10,
   scalemethod = "auto", plsmethod = "plsreg", path = NULL, width = 7,
   height = 7, text = FALSE, ellipse = TRUE, color = c("palegreen",
   "firebrick1", "royalblue", "yellow", "black", "cyan", "gray48"),
-  shape = c(17, 19, 15, 18, 2, 8, 11), cexa = 1)
+  shape = c(17, 19, 15, 18, 2, 8, 11), cexa = 1, xlim1 = NULL,
+  ylim1 = NULL)
 }
 \arguments{
 \item{MetFlowData}{MetFlowData.}
@@ -25,6 +26,8 @@ PLSanalysis(MetFlowData = MetFlowData, log.scale = 10,
 
 \item{scale.method}{Whihch scale methd you want to use? "auto" or "pareto",
 defaulit is "auto".}
+
+\item{xlim1_ylim1}{The x and y axis limitation. Default is NULL.}
 }
 \value{
 PLS score plot: PLS score plot.

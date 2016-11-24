@@ -105,8 +105,7 @@ UnivariateTest <- function(MetFlowData = MetFlowData,
     p.each <- tuk.p
   }
 
-  feature.auc <- apply(subject, 1, function(x)
-    auc(Y, x))
+  feature.auc <- apply(subject, 1, function(x) {pROC::auc(Y, x)})
 
   if (any(colnames(tags) == "p")) {
     tags[, "p"] <- p
