@@ -1,23 +1,21 @@
-#' A whole work flow for high throughput MS based metabolomics data statistical analysis.
-#'
 #' @title MetStat
-#' @description A whole work flow for high throughput MS based metabolomics data statistical analysis.
+#' @description A whole work flow for high throughput MS based metabolomics
+#' data statistical analysis.
 #' @author Xiaotao Shen
 #' \email{shenxt@@sioc.ac.cn}
 #' @param parameters All the parameters can be found in others functions.
 #' @return All the results can be got form other functions and instruction.
 #' @export
-
 #' @examples
 #' \dontrun{
 #' ## load the demo data
 #'data(MetFlowData, package = "MetProcesser")
-#'data(sample.information, package = "MetProcesser")
+#'data(new.group, package = "MetProcesser")
 #'##create a folder for MetStat demo
 #'dir.create("Demo for MetStat")
 #'setwd("Demo for MetStat")
 #'## export the demo data as csv
-#'write.csv(sample.information , "new.group.csv", row.names = FALSE)
+#'write.csv(new.group, "new.group.csv", row.names = FALSE)
 #'## run MetStat
 #'MetStat(MetFlowData = MetFlowData, new.group = TRUE)
 #' }

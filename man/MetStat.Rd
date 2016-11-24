@@ -22,21 +22,19 @@ MetStat(MetFlowData = MetFlowData, new.group = TRUE, rsd.cutoff = 30,
 All the results can be got form other functions and instruction.
 }
 \description{
-A whole work flow for high throughput MS based metabolomics data statistical analysis.
-}
-\details{
-A whole work flow for high throughput MS based metabolomics data statistical analysis.
+A whole work flow for high throughput MS based metabolomics
+data statistical analysis.
 }
 \examples{
 \dontrun{
 ## load the demo data
 data(MetFlowData, package = "MetProcesser")
-data(sample.information, package = "MetProcesser")
+data(new.group, package = "MetProcesser")
 ##create a folder for MetStat demo
 dir.create("Demo for MetStat")
 setwd("Demo for MetStat")
 ## export the demo data as csv
-write.csv(sample.information , "new.group.csv", row.names = FALSE)
+write.csv(new.group, "new.group.csv", row.names = FALSE)
 ## run MetStat
 MetStat(MetFlowData = MetFlowData, new.group = TRUE)
 }
