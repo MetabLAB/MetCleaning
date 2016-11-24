@@ -26,12 +26,12 @@ cleaning.
 \examples{
 \dontrun{
 #load the demo data
-data(data, package = "MetProcesser")
-data(sample.information, package = "MetProcesser")
-data(new.group, package = "MetProcesser")
-data(ms2_1, package = "MetProcesser")
-data(ms2_2, package = "MetProcesser")
-data(ms2_3, package = "MetProcesser")
+data(data, package = "MetCleaning")
+data(sample.information, package = "MetCleaning")
+data(new.group, package = "MetCleaning")
+data(ms2_1, package = "MetCleaning")
+data(ms2_2, package = "MetCleaning")
+data(ms2_3, package = "MetCleaning")
 ##create a folder for MetPre demo
 dir.create("Demo for MetPre")
 setwd("Demo for MetPre")
