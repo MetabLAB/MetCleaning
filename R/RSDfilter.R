@@ -21,5 +21,5 @@ RSDfilter <- function(MetFlowData,
   MetFlowData[["qc"]] <- MetFlowData[["qc"]][var.index,]
   MetFlowData[["tags"]] <- MetFlowData[["tags"]][var.index,]
   MetFlowData[["subject"]] <- MetFlowData[["subject"]][var.index,]
-  retrun(MetFlowData)
+  return(MetFlowData)
 }

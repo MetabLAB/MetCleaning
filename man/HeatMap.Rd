@@ -37,4 +37,7 @@ Heat map
 Xiaotao Shen
 \email{shenxt@sioc.ac.cn}
 }
+\seealso{
+\code{\link[pheatmap]{pheatmap}}
+}
 

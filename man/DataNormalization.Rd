@@ -22,7 +22,8 @@ default is svr. Please see the details.}
 \item{svrloess}{You can see MetNormalizer for help.}
 }
 \value{
-The normalization results can see help for MetNormalizer.
+The normalization results can be got from help of
+\code{\link{MetNormalizer}}.
 }
 \description{
 Normalize dataset.

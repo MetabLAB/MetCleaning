@@ -8,8 +8,9 @@
 #' default is svr. Please see the details.
 #' @param dimension1: Remain dimension or not. Default is TRUE.
 #' @param svrloess You can see MetNormalizer for help.
-#' @return The normalization results can see help for MetNormalizer.
-#' @seealso\code{\link{MetNormalizer}}
+#' @return The normalization results can be got from help of
+#' \code{\link{MetNormalizer}}.
+#' @seealso \code{\link{MetNormalizer}}
 #' @export
 #' @details Data normalization is a useful method to reduce unwanted variances
 #' in metabolomics data. The most used normalization methods is

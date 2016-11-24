@@ -15,7 +15,7 @@
 #' @seealso The MV imputation methods can see in
 #' \code{\link[impute]{impute.knn}}, \code{\link[missForest]{missForest}},
 #' \code{\link[pcaMethods]{bpca}}, \code{\link[pcaMethods]{ppca}} and
-#' \code{\link[pcaMethods]{svf}}.
+#' \code{\link[pcaMethods]{svd}}.
 #' @references The MV imputation in metabolomics data can see in
 #' \href{https://www.readcube.com/library/fe13374b-5bc9-4c61-9b7f-6a354690947e:c9d05d0f-e945-43d0-bb4a-50ea0f90338e}{Guida's} paper.
 

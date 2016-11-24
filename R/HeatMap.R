@@ -11,6 +11,7 @@
 #' @param ... other parameters for pheatmap.
 #' @return A heatmap plot.
 #' @export
+#' @seealso \code{\link[pheatmap]{pheatmap}}
 
 HeatMap <- function(MetFlowData = MetFlowData,
                     log.scale = FALSE,

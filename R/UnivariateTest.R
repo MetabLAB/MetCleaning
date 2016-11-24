@@ -7,7 +7,7 @@
 #' @param adjust.method p value correction method. See p.adjust function.
 #' @return MetFlowData which has been added p and AUC information in tags.
 #' @export
-#' @seealso The details of univariate can be find in \code{\link[stats]{t.test}},
+#' @seealso The details of univariate test can be found in \code{\link[stats]{t.test}},
 #' \code{\link[stats]{p.adjust}} and \code{\link[stats]{wilcox.test}}.
 
 UnivariateTest <- function(MetFlowData = MetFlowData,
