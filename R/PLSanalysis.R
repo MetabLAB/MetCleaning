@@ -39,7 +39,7 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
 #parameter setting
 {
   # browser()
-  requireNamespace("pls")
+  # requireNamespace("pls")
   if (is.null(path)) {
     path <- getwd()
   } else{
@@ -129,12 +129,12 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
 
     yesnot <- "y"
     while (yesnot == "y" | yesnot == "") {
-      comps.number <- readline("How many comps do you want to see? ")
+      comps.number <- readline("How many comps do you want to see?")
       while (!exists("comps.number") | comps.number == "")
       {
         cat("You must give a comps number to continute!!!\n")
         comps.number <-
-          readline("How many comps do you want to see? ")
+          readline("How many comps do you want to see?")
       }
       comps.number <- as.numeric(comps.number)
       par(mar = c(5,5,4,2))
@@ -204,11 +204,11 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
     dev.off()
 
     number <-
-      readline("Please type number and press Enter  to continute:  ")
+      readline("Please type number and press Enter to continute:")
     while (!exists("number") | number == "") {
       cat("You must give a number to continute!!!\n")
       number <-
-        readline("Please type comps number value and press Enter  to continute: ")
+        readline("Please type comps number value and press Enter  to continute:")
     }
     number <- as.numeric(number)
 
@@ -254,12 +254,12 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
     Q2cum[is.nan(Q2cum)] <- 1
     yesnot <- "y"
     while (yesnot == "y" | yesnot == "") {
-      comps.number <- readline("How many comps do you want to see? ")
+      comps.number <- readline("How many comps do you want to see?")
       while (!exists("comps.number") |
              comps.number == "") {
         cat("You must give a comps number to continute!!!\n")
         comps.number <-
-          readline("How many comps do you want to see? ")
+          readline("How many comps do you want to see?")
       }
       comps.number <- as.numeric(comps.number)
       par(mar = c(5,5,4,2))
@@ -305,12 +305,12 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
     dev.off()
 
     number <-
-      readline("Please type number and press Enter  to continute:  ")
+      readline("Please type number and press Enter to continute:")
     while (!exists("number") |
            number == "") {
       cat("You must give a number to continute!!!\n")
       number <-
-        readline("Please type comps number value and press Enter  to continute: ")
+        readline("Please type comps number value and press Enter to continute:")
     }
     number <- as.numeric(number)
 

@@ -11,10 +11,10 @@
 #' #load the demo data
 #' data(data, package = "MetProcesser")
 #' data(sample.information, package = "MetProcesser")
-#' data(ms2_50_300, package = "MetProcesser")
-#' data(ms2_50_1200, package = "MetProcesser")
-#' data(ms2_290_600, package = "MetProcesser")
-#' data(ms2_590_900, package = "MetProcesser")
+#' data(new.group, package = "MetProcesser")
+#' data(ms2_1, package = "MetProcesser")
+#' data(ms2_2, package = "MetProcesser")
+#' data(ms2_3, package = "MetProcesser")
 #' ##create a folder for MetPre demo
 #' dir.create("Demo for MetPre")
 #' setwd("Demo for MetPre")
@@ -23,12 +23,11 @@
 #' dir.create(path)
 #' # export the demo data as csv
 #' write.csv(data, "data.csv", row.names = FALSE)
-#' write.csv(sample.information , "sample.information.csv", row.names = FALSE)
-#' write.csv(sample.information , "new.group.csv", row.names = FALSE)
-#' write.csv(ms2_50_300, file.path(path, "ms2_50_300.csv"), row.names = FALSE)
-#' write.csv(ms2_50_1200, file.path(path, "ms2_50_1200.csv"), row.names = FALSE)
-#' write.csv(ms2_290_600, file.path(path, "ms2_290_600.csv"), row.names = FALSE)
-#' write.csv(ms2_590_900, file.path(path, "ms2_590_900.csv"), row.names = FALSE)
+#' write.csv(sample.information, "sample.information.csv", row.names = FALSE)
+#' write.csv(new.group, "new.group.csv", row.names = FALSE)
+#' write.csv(ms2_1, file.path(path, "ms2_1.csv"), row.names = FALSE)
+#' write.csv(ms2_2, file.path(path, "ms2_2.csv"), row.names = FALSE)
+#' write.csv(ms2_3, file.path(path, "ms2_3.csv"), row.names = FALSE)
 #' #run MetPre
 #' MetPre(#ImportData para
 #' data = "data.csv",
