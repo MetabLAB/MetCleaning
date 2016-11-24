@@ -1,0 +1,31 @@
+Package: MetCleaning
+Type: Package
+Title: MetCleaning
+Version: 1.0.0
+Date: 2016-11-23
+Author: Xiaotao Shen, Zhengjiang Zhu
+Maintainer: Xiaotao Shen<shenxt@sioc.ac.cn>
+Description: Automatic and integrated tool for data cleaning and statistical analysis of large scale MS-based metabolomics data.
+LazyData: true
+Depends: R
+Imports:
+    ggplot2,
+    pcaMethods,
+    impute,
+    missForest,
+    scatterplot3d,
+    pheatmap,
+    beeswarm,
+    ellipse,
+    pls,
+    plsdepot,
+    pROC,
+    e1071,
+    snow,
+    methods
+License: LGPL-2
+URL: https://github.com/jaspershen/MetCleaning
+RoxygenNote: 5.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
