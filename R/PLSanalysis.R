@@ -39,6 +39,7 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
 #parameter setting
 {
   # browser()
+  requireNamespace("pls")
   if (is.null(path)) {
     path <- getwd()
   } else{
