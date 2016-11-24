@@ -23,7 +23,8 @@ PLSanalysis(MetFlowData = MetFlowData, log.scale = 10,
 
 \item{shape}{Shape for different class.}
 
-\item{scale.method}{Whihch scale methd you want to use? "auto" or "pareto", defaulit is "auto".}
+\item{scale.method}{Whihch scale methd you want to use? "auto" or "pareto",
+defaulit is "auto".}
 }
 \value{
 PLS score plot: PLS score plot.

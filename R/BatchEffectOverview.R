@@ -11,8 +11,8 @@
 #' @export
 
 ### Batch effect for multiple batch datasets
-BatchEffectOverview <- function(MetFlowData.before = MetFlowData1,
-                                MetFlowData.after = MetFlowData2,
+BatchEffectOverview <- function(MetFlowData.before,
+                                MetFlowData.after,
                                 path = NULL) {
   options(warn = -1)
 # browser()

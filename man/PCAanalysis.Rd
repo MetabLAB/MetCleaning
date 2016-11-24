@@ -16,7 +16,8 @@ PCAanalysis(MetFlowData = MetFlowData, QC = FALSE, log.scale = FALSE,
 
 \item{QC}{Use qc data for PCA analyis or not? Default is FALSE.}
 
-\item{scale.method}{Whihch scale methd you want to use? "auto" or "pareto", defaulit is "auto".}
+\item{scale.method}{Whihch scale methd you want to use? "auto" or "pareto",
+defaulit is "auto".}
 
 \item{path}{Work Directory}
 
