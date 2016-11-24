@@ -10,10 +10,10 @@
 #' @param path Work directory.
 #' @param text Add text in PCA score plot or not? Deefault is FALSE.
 #' @param ellipse Add ellipse in PCA score plot or not? Deefault is TRUE.
+#' @param xlim1_ylim1 The x and y axis limitation. Default is NULL.
 #' @return PLS score plot: PLS score plot.
 #' @return permutation test plot: Permutation test plot.
 #' @export
-
 
 PLSanalysis <- function(MetFlowData = MetFlowData,
                         #used data
@@ -33,7 +33,9 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
                                   "cyan",
                                   "gray48"),
                         shape = c(17, 19, 15, 18, 2, 8, 11),
-                        cexa = 1)
+                        cexa = 1,
+                        xlim1 = NULL,
+                        ylim1 = NULL)
 #parameter setting
 {
   # browser()
@@ -120,7 +122,7 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
     save(pls1, file = "pls1")
 
     #########select the number of compents#################
-    msep <- MSEP(pls1)
+    msep <- pls::MSEP(pls1)
     save(msep, file = file.path(path, "msep"))
     msep <- msep$val[, ,]
 
@@ -244,7 +246,7 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
     int.dummy <- dummy
     # ncompa = nrow(int.scale) - 1
     ncompa <- min(nrow(int), ncol(int)) - 1
-    pls1 <- plsreg1(int.scale, Y, comps = ncompa)
+    pls1 <- plsdepot::plsreg1(int.scale, Y, comps = ncompa)
     save(pls1, file = file.path(path, "pls1"))
     #########select the number of compents#################
     Q2cum <- pls1$Q2[, 5]
@@ -392,6 +394,17 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
     pcha[label[[i]]] <- pchalist[i]
   }
 
+  if (is.null(xlim1)) {
+    xlim = c(xmin, xmax)
+  } else {
+    xlim = xlim1
+  }
+  if (is.null(ylim1)) {
+    ylim = c(ymin, ymax)
+  } else {
+    ylim = ylim1
+  }
+
   #PLS 2D
   pdf(file.path(path, "pls score plot.pdf"),
       width = width,
@@ -400,8 +413,8 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
   plot(
     x,
     y,
-    xlim = c(xmin, xmax),
-    ylim = c(ymin, ymax),
+    xlim = xlim,
+    ylim = ylim,
     col = colour,
     pch = pcha,
     xlab = "t[1]",
@@ -452,8 +465,8 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
       cex.symbol = cexa,
       cex.lab = 1.5,
       cex.axis = 1.3,
-      xlim = c(xmin, xmax),
-      ylim = c(ymin, ymax),
+      xlim = xlim,
+      ylim = ylim,
       zlim = c(zmin, zmax)
     )
     legend(

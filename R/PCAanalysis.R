@@ -13,6 +13,7 @@
 #' @param path Work Directory
 #' @param text Add text in PCA score plot or not? Deefault is FALSE.
 #' @param ellipse Add ellipse in PCA score plot or not? Deefault is TRUE.
+#' @param xlim1_ylim1 The x and y axis limitation. Default is NULL.
 #' @return PCA score plot.
 #' @export
 
@@ -41,7 +42,9 @@ PCAanalysis <- function(MetFlowData = MetFlowData,
                         width = 7,
                         height = 7,
                         text = FALSE,
-                        ellipse = TRUE) {
+                        ellipse = TRUE,
+                        xlim1 = NULL,
+                        ylim1 = NULL) {
   # browser()
   if (is.null(path)) {
     path <- getwd()
@@ -253,7 +256,6 @@ PCAanalysis <- function(MetFlowData = MetFlowData,
   #   abline(h = 0, lty = 2)
   #
   #   #loading plot 3d
-  #   library(scatterplot3d)
   #   scatterplot3d(
   #     loading[, 1],
   #     loading[, 2],
@@ -277,12 +279,23 @@ PCAanalysis <- function(MetFlowData = MetFlowData,
       width = width,
       height = height)
   #t1 vs t2 plot
+  if (is.null(xlim1)) {
+    xlim = c(xmin, xmax)
+  } else {
+      xlim = xlim1
+  }
+  if (is.null(ylim1)) {
+    ylim = c(ymin, ymax)
+  } else {
+    ylim = ylim1
+  }
+
   par(mar = c(5, 5, 4, 2))
   plot(
     x,
     y,
-    xlim = c(xmin, xmax),
-    ylim = c(ymin, ymax),
+    xlim = xlim,
+    ylim = ylim,
     col = colour,
     pch = pcha,
     xlab = paste("PC1:", pc1, sep = ""),
@@ -336,8 +349,8 @@ PCAanalysis <- function(MetFlowData = MetFlowData,
   plot(
     y,
     z,
-    xlim = c(ymin, ymax),
-    ylim = c(zmin, zmax),
+    xlim = xlim,
+    ylim = ylim,
     col = colour,
     pch = pcha,
     xlab = paste("PC2:", pc2, sep = ""),
@@ -387,8 +400,8 @@ PCAanalysis <- function(MetFlowData = MetFlowData,
   plot(
     x,
     z,
-    xlim = c(xmin, xmax),
-    ylim = c(zmin, zmax),
+    xlim = xlim,
+    ylim = ylim,
     col = colour,
     pch = pcha,
     xlab = paste("PC1:", pc1, sep = ""),
@@ -435,7 +448,7 @@ PCAanalysis <- function(MetFlowData = MetFlowData,
   }
 
   #PCA 3D
-  scatterplot3d(
+  scatterplot3d::scatterplot3d(
     x,
     y,
     z,
@@ -449,8 +462,8 @@ PCAanalysis <- function(MetFlowData = MetFlowData,
     cex.symbol = 1,
     cex.lab = 1.3,
     cex.axis = 1.3,
-    xlim = c(xmin, xmax),
-    ylim = c(ymin, ymax),
+    xlim = xlim,
+    ylim = ylim,
     zlim = c(zmin, zmax)
   )
 
