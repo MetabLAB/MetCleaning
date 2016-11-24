@@ -20,9 +20,6 @@ MetFlowData which has been added fold change information in tags.
 \description{
 Calculate fold change for MetFlowData.
 }
-\details{
-Calculate fold change for MetFlowData.
-}
 \author{
 Xiaotao Shen
 \email{shenxt@sioc.ac.cn}

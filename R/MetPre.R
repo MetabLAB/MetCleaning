@@ -1,7 +1,6 @@
-#' A whole work flow for high throughput MS based metabolomics data cleaning.
-#'
 #' @title MetPre
-#' @description A whole work flow for high throughput MS based metabolomics data cleaning.
+#' @description A whole work flow for high throughput MS based metabolomics data
+#'cleaning.
 #' @author Xiaotao Shen
 #' \email{shenxt@@sioc.ac.cn}
 #' @param parameters All the parameters can be found in others functions.
@@ -243,7 +242,7 @@ MetPre <- function(#ImportData para
                                    path = file.path("Subject outlier finder"))
   met.data.subject.outlier.filter <- met.data
   save(met.data.subject.outlier.filter,
-       file = "met.data.subject.outlier.filter")
+       file = file.path(path.inter, "met.data.subject.outlier.filter"))
   } else {
     load(file.path(path.inter, "met.data.subject.outlier.filter"))
     met.data <- met.data.subject.outlier.filter

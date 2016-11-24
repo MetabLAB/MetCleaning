@@ -20,10 +20,8 @@ MetPre(data = "data.csv", sample.information = "sample.information.csv",
 All the results can be got form other functions and instruction.
 }
 \description{
-A whole work flow for high throughput MS based metabolomics data cleaning.
-}
-\details{
-A whole work flow for high throughput MS based metabolomics data cleaning.
+A whole work flow for high throughput MS based metabolomics data
+cleaning.
 }
 \examples{
 \dontrun{

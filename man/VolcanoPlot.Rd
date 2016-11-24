@@ -5,8 +5,8 @@
 \title{VolcanoPlot}
 \usage{
 VolcanoPlot(MetFlowData = MetFlowData, x = "foldchange", y = "p",
-  z = "vip", col = c("black", "firebrick1"), foldchange.cutoff = c(4/3,
-  3/4), p.cutoff = 0.05, vip.cutoff = 1, path = NULL)
+  z = "vip", col = c("grey", "tomato"), foldchange.cutoff = c(4/3, 3/4),
+  p.cutoff = 0.05, vip.cutoff = 1, path = NULL)
 }
 \arguments{
 \item{MetFlowData}{MetFlowData.}

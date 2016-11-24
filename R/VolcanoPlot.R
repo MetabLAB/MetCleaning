@@ -13,14 +13,18 @@ VolcanoPlot <- function(MetFlowData = MetFlowData,
                         x = "foldchange",
                         y = "p",
                         z = "vip",
-                        col = c("black", "firebrick1"),
-                        foldchange.cutoff = c(4/3, 3/4),
+                        col = c("grey", "tomato"),
+                        foldchange.cutoff = c(4 / 3, 3 / 4),
                         p.cutoff = 0.05,
                         vip.cutoff = 1,
-                        path = NULL){
+                        path = NULL) {
   # browser()
-  if(is.null(path)) {path <- gewtd()}
-  else{dir.create(path)}
+  if (is.null(path)) {
+    path <- gewtd()
+  }
+  else{
+    dir.create(path)
+  }
 
   tags <- MetFlowData[["tags"]]
 
@@ -45,10 +49,10 @@ VolcanoPlot <- function(MetFlowData = MetFlowData,
   #   stop(paste("No", vip,"!!!"))
   # }
 
-  x1 <- as.numeric(tags[,x])
-  y1 <- as.numeric(tags[,y])
+  x1 <- as.numeric(tags[, x])
+  y1 <- as.numeric(tags[, y])
   if (z != FALSE) {
-    z1 <- as.numeric(tags[,z])
+    z1 <- as.numeric(tags[, z])
   }
 
   f.cutoff1 <- as.numeric(foldchange.cutoff[1])
@@ -57,7 +61,7 @@ VolcanoPlot <- function(MetFlowData = MetFlowData,
   vip.cutoff <- as.numeric(vip.cutoff)
 
   ##x transformation
-  if (x == "foldchange"){
+  if (x == "foldchange") {
     x1 <- log(x1, 2)
     x.lab1 <- "log2(Fold change)"
   }
@@ -71,7 +75,7 @@ VolcanoPlot <- function(MetFlowData = MetFlowData,
   }
 
   ##y transformation
-  if (y == "foldchange"){
+  if (y == "foldchange") {
     y1 <- log(y1, 2)
     y.lab1 <- "log2(Fold change)"
   }
@@ -86,7 +90,7 @@ VolcanoPlot <- function(MetFlowData = MetFlowData,
 
   ##z transformation
   if (z != FALSE) {
-    if (z == "foldchange"){
+    if (z == "foldchange") {
       z1 <- log(z1, 2)
     }
     if (z == "p") {
@@ -98,8 +102,10 @@ VolcanoPlot <- function(MetFlowData = MetFlowData,
   }
 
   if ("is.marker" %in% colnames(tags)) {
-    marker.index <- which(tags[,"is.marker"] == "yes")
-    if (length(marker.index) == 0) {stop("No marker are selected, please change canditios and try again!!!")}
+    marker.index <- which(tags[, "is.marker"] == "yes")
+    if (length(marker.index) == 0) {
+      stop("No marker are selected, please change canditios and try again!!!")
+    }
   } else {
     stop("Please select marker first (Using MarkerSelection function)!!!")
   }
@@ -112,25 +118,41 @@ VolcanoPlot <- function(MetFlowData = MetFlowData,
     temp1 <- c(min(z1), max(z1))
     temp2 <- c(0.5, 1.3)
     lm.reg <- lm(temp2 ~ temp1)
-    cexa <- lm.reg[["coefficients"]][2] * z1 +  lm.reg[["coefficients"]][1]
+    cexa <-
+      lm.reg[["coefficients"]][2] * z1 +  lm.reg[["coefficients"]][1]
   } else {
     cexa <- 1
   }
-# browser()
-  pdf(file.path(path,"Volcano plot.pdf"))
-  par(mar = c(5,5,4,2))
-  plot(x1, y1, xlab = x.lab1, ylab = y.lab1,
-       cex.lab = 1.3, cex.axis = 1.3, col = colour, pch  = 19,
-       cex = cexa)
+  # browser()
+  pdf(file.path(path, "Volcano plot.pdf"))
+  par(mar = c(5, 5, 4, 2))
+  plot(
+    x1,
+    y1,
+    xlab = x.lab1,
+    ylab = y.lab1,
+    cex.lab = 1.5,
+    cex.axis = 1.3,
+    col = colour,
+    pch  = 19,
+    cex = cexa
+  )
   # abline(h = -log(p.cutoff,10), lty = 2)
   # abline(v = log(f.cutoff1,2), lty = 2)
   # abline(v = log(f.cutoff2,2), lty = 2)
-  vip.mean <- (min(z1)+max(z1))/2
-  cexa.mean <- round(lm.reg[["coefficients"]][2]*vip.mean+lm.reg[["coefficients"]][1],1)
+  vip.mean <- (min(z1) + max(z1)) / 2
+  cexa.mean <-
+    round(lm.reg[["coefficients"]][2] * vip.mean + lm.reg[["coefficients"]][1], 1)
   if (z != FALSE) {
-    legend("topleft", legend = c(round(min(z1),1), round(vip.mean,1), round(max(z1))),
-           title = "VIP", bty = "n", cex = 1.3,
-           pt.cex = c(0.5,cexa.mean,1.3), pch = 19)
+    legend(
+      "topleft",
+      legend = c(round(min(z1), 1), round(vip.mean, 1), round(max(z1))),
+      title = "VIP",
+      bty = "n",
+      cex = 1.5,
+      pt.cex = c(0.5, cexa.mean, 1.3),
+      pch = 19
+    )
   }
 
   dev.off()

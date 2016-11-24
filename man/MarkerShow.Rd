@@ -19,9 +19,6 @@ Box plot of markers.
 \description{
 Draw boxplot for markers.
 }
-\details{
-Draw boxplot for markers.
-}
 \author{
 Xiaotao Shen
 \email{shenxt@sioc.ac.cn}

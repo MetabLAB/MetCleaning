@@ -17,7 +17,7 @@ HeatMap(MetFlowData = MetFlowData, log.scale = FALSE,
 
 \item{log.scale}{log transformation or not.}
 
-\item{color}{color list for sample group.}
+\item{color}{Color list for sample group.}
 
 \item{variable}{"all" or "marker" for heatmap.}
 
@@ -31,9 +31,6 @@ HeatMap(MetFlowData = MetFlowData, log.scale = FALSE,
 A heatmap plot.
 }
 \description{
-Heat map
-}
-\details{
 Heat map
 }
 \author{

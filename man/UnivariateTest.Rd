@@ -25,6 +25,7 @@ Xiaotao Shen
 \email{shenxt@sioc.ac.cn}
 }
 \seealso{
-\code{\link{t.test}}, \code{\link{p.adjust}} and \code{\link{wilcox.test}}
+The details of univariate can be find in \code{\link[stats]{t.test}},
+\code{\link[stats]{p.adjust}} and \code{\link[stats]{wilcox.test}}.
 }
 
