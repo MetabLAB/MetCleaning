@@ -28,15 +28,15 @@ data statistical analysis.
 \examples{
 \dontrun{
 ## load the demo data
-data(MetFlowData, package = "MetProcesser")
-data(new.group, package = "MetProcesser")
+data(met.data1, package = "MetCleaning")
+data(new.group, package = "MetCleaning")
 ##create a folder for MetStat demo
 dir.create("Demo for MetStat")
 setwd("Demo for MetStat")
 ## export the demo data as csv
 write.csv(new.group, "new.group.csv", row.names = FALSE)
 ## run MetStat
-MetStat(MetFlowData = MetFlowData, new.group = TRUE)
+MetStat(MetFlowData = met.data1, new.group = TRUE)
 }
 }
 \author{
