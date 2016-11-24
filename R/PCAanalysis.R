@@ -4,9 +4,11 @@
 #' \email{shenxt@@sioc.ac.cn}
 #' @param MetFlowData MetFlowData.
 #' @param color Color for different class.
-#' @param shape Shape for different class.
-#' @param scale.method Whihch scale methd you want to use? "auto" or "pareto",
+#' @param shape Shape for different class. please see the help of par(pch).
+#' @param scale.method Which scale methd you want to use? "auto" or "pareto",
 #' defaulit is "auto".
+#' @param log.scale Which transformation methd you want to use? 2, 10  or "e",
+#' defaulit is FALSE mean don't transformation.
 #' @param QC Use qc data for PCA analyis or not? Default is FALSE.
 #' @param path Work Directory
 #' @param text Add text in PCA score plot or not? Deefault is FALSE.

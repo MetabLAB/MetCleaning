@@ -120,7 +120,7 @@ PLSpermutation <- function(data = NULL,
 
   points(x = cor,
          y = q2,
-         col = "firebrick1",
+         col = "tomato",
          pch = 19)
   points(x = cor,
          y = r2,
@@ -129,7 +129,7 @@ PLSpermutation <- function(data = NULL,
 
   points(x = 1,
          y = Q2,
-         col = "firebrick1",
+         col = "tomato",
          pch = 19)
   points(x = 1,
          y = R2,
@@ -165,10 +165,10 @@ PLSpermutation <- function(data = NULL,
     title = "Intercepts",
     legend = c(paste("Q2", round(intercept.q2, 2), sep = ": "),
                paste("R2", round(intercept.r2, 2), sep = ": ")),
-    col = c("firebrick1", "royalblue"),
+    col = c("tomato", "royalblue"),
     pch = 19,
     pt.cex = 1.3,
-    cex = 1.3,
+    cex = 1.5,
     bty = "n"
   )
   par(xpd = T)

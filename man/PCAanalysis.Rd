@@ -16,14 +16,17 @@ PCAanalysis(MetFlowData = MetFlowData, QC = FALSE, log.scale = FALSE,
 
 \item{QC}{Use qc data for PCA analyis or not? Default is FALSE.}
 
-\item{scale.method}{Whihch scale methd you want to use? "auto" or "pareto",
+\item{log.scale}{Which transformation methd you want to use? 2, 10  or "e",
+defaulit is FALSE mean don't transformation.}
+
+\item{scale.method}{Which scale methd you want to use? "auto" or "pareto",
 defaulit is "auto".}
 
 \item{path}{Work Directory}
 
 \item{color}{Color for different class.}
 
-\item{shape}{Shape for different class.}
+\item{shape}{Shape for different class. please see the help of par(pch).}
 
 \item{text}{Add text in PCA score plot or not? Deefault is FALSE.}
 

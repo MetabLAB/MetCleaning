@@ -76,7 +76,7 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
   index <- index[!is.na(index)]
   index <- match(index, rownames(int))
   index <- index[!is.na(index)]
-  int <- int[index,]
+  int <- int[index, ]
 
   #######
   name <- rownames(int)
@@ -110,7 +110,7 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
 
   if (plsmethod == "plsr") {
     pls1 <-
-      plsr(
+      pls::plsr(
         int.Y ~ int.scale,
         scale = FALSE,
         validation = "CV",
@@ -122,7 +122,7 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
     #########select the number of compents#################
     msep <- MSEP(pls1)
     save(msep, file = file.path(path, "msep"))
-    msep <- msep$val[, , ]
+    msep <- msep$val[, ,]
 
     yesnot <- "y"
     while (yesnot == "y" | yesnot == "") {
@@ -134,28 +134,32 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
           readline("How many comps do you want to see? ")
       }
       comps.number <- as.numeric(comps.number)
+      par(mar = c(5,5,4,2))
       plot(
         x = c(1:comps.number),
         y = msep[1, 2:(comps.number + 1)],
         type = "b",
-        col = "firebrick1",
-        pch = 20,
+        col = "tomato",
+        pch = 19,
         xlab = "ncomp",
         ylab = "MSEP",
-        cex.lab = 1.3,
-        cex.axis = 1.3
+        cex.lab = 1.5,
+        cex.axis = 1.3,
+        ylim= c(0.8 * min(msep[c(1, 2), 2:(comps.number + 1)]),
+                1.2 * max(msep[c(1, 2), 2:(comps.number + 1)]))
       )
       points(
         x = c(1:comps.number),
         y = msep[2, 2:(comps.number + 1)],
         type = "b",
-        pch = 2
+        pch = 17,
+        col = "grey"
       )
       legend(
         "top",
         legend = c("CV", "adjCV"),
-        col = c("firebrick1", "black"),
-        pch = c(20, 2),
+        col = c("tomato", "grey"),
+        pch = c(19, 19),
         bty = "n",
         cex = 1.3,
         pt.cex = 1.3
@@ -164,28 +168,32 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
     }
 
     pdf(file.path(path, "MSEP plot.pdf"))
+    par(mar = c(5,5,4,2))
     plot(
       x = c(1:comps.number),
       y = msep[1, 2:(comps.number + 1)],
       type = "b",
-      col = "firebrick1",
-      pch = 20,
+      col = "tomato",
+      pch = 19,
       xlab = "ncomp",
       ylab = "MSEP",
-      cex.lab = 1.3,
-      cex.axis = 1.3
+      cex.lab = 1.5,
+      cex.axis = 1.3,
+      ylim= c(0.8 * min(msep[c(1, 2), 2:(comps.number + 1)]),
+              1.2 * max(msep[c(1, 2), 2:(comps.number + 1)]))
     )
     points(
       x = c(1:comps.number),
       y = msep[2, 2:(comps.number + 1)],
       type = "b",
-      pch = 2
+      pch = 17,
+      col = "grey"
     )
     legend(
       "top",
       legend = c("CV", "adjCV"),
-      col = c("firebrick1", "black"),
-      pch = c(20, 2),
+      col = c("tomato", "grey"),
+      pch = c(19, 19),
       bty = "n",
       cex = 1.3,
       pt.cex = 1.3
@@ -194,8 +202,7 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
 
     number <-
       readline("Please type number and press Enter  to continute:  ")
-    while (!exists("number") |
-           number == "") {
+    while (!exists("number") | number == "") {
       cat("You must give a number to continute!!!\n")
       number <-
         readline("Please type comps number value and press Enter  to continute: ")
@@ -204,7 +211,7 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
 
     ##################construct final pls model###################
     pls2 <-
-      plsr(
+      pls::plsr(
         int.Y ~ int.scale,
         scale = FALSE,
         validation = "CV",
@@ -252,19 +259,13 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
           readline("How many comps do you want to see? ")
       }
       comps.number <- as.numeric(comps.number)
-      barplot(
-        Q2cum[1:comps.number],
-        xlab = "ncomp",
-        ylab = "Q2cum",
-        cex.lab = 1.3,
-        cex.axis = 1.3
-      )
+      par(mar = c(5,5,4,2))
       a <-
         barplot(
           Q2cum[1:comps.number],
           xlab = "ncomp",
           ylab = "Q2cum",
-          cex.lab = 1.3,
+          cex.lab = 1.5,
           cex.axis = 1.3
         )
       abline(h = 0)
@@ -272,7 +273,7 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
         a,
         Q2cum[1:comps.number],
         type = "b",
-        col = "red",
+        col = "tomato",
         pch = 20,
         cex = 2
       )
@@ -281,27 +282,20 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
     pdf(file.path(path, "Q2cum plot.pdf"),
         width = 7,
         height = 7)
-    barplot(
+    par(mar = c(5,5,4,2))
+    a <- barplot(
       Q2cum[1:comps.number],
       xlab = "ncomp",
       ylab = "Q2cum",
-      cex.lab = 1.3,
+      cex.lab = 1.5,
       cex.axis = 1.3
     )
-    a <-
-      barplot(
-        Q2cum[1:comps.number],
-        xlab = "ncomp",
-        ylab = "Q2cum",
-        cex.lab = 1.3,
-        cex.axis = 1.3
-      )
     abline(h = 0)
     points(
       a,
       Q2cum[1:comps.number],
       type = "b",
-      col = "red",
+      col = "tomato",
       pch = 20,
       cex = 2
     )
@@ -324,9 +318,9 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
       "comps ...",
       "\n"
     ))
-    pls2 <- plsreg1(int.scale, Y, comps = number)
+    pls2 <- plsdepot::plsreg1(int.scale, Y, comps = number)
     save(pls2, file = file.path(path, "pls2"))
-    pls.temp <- plsreg2(int.scale, int.dummy, comps = number)
+    pls.temp <- plsdepot::plsreg2(int.scale, int.dummy, comps = number)
     vip <- pls.temp$VIP
     Q2cum <- pls2$Q2[, 5]
     R2cum <- cumsum(pls2$R2)
@@ -341,20 +335,21 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
     pdf(file.path(path, "Q2R2cum.pdf"),
         width = 8,
         height = 6)
+    par(mar = c(5,5,4,2))
     barplot(
       t(Q2R2),
       beside = T,
-      col = c("palegreen", "royalblue"),
-      cex.lab = 1.3,
+      col = c("royalblue", "tomato"),
+      cex.lab = 1.5,
       cex.axis = 1.3,
-      cex.names = 1.3
+      cex.names = 1.5
     )
     abline(h = 0)
     legend(
       "topleft",
       legend = c("R2Ycum", "Q2cum"),
       pch = 15,
-      col = c("palegreen", "royalblue"),
+      col = c("royalblue", "tomato"),
       cex = 1.3,
       pt.cex = 1.3,
       bty = "n"
@@ -398,9 +393,10 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
   }
 
   #PLS 2D
-  pdf(file.path(path, "plsplot 2d t1 vs t2.pdf"),
+  pdf(file.path(path, "pls score plot.pdf"),
       width = width,
       height = height)
+  par(mar = c(5,5,4,2))
   plot(
     x,
     y,
@@ -412,7 +408,7 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
     ylab = "t[2]",
     cex = cexa,
     cex.axis = 1.3,
-    cex.lab = 1.3
+    cex.lab = 1.35
   )
   abline(v = 0, lty = 2)
   abline(h = 0, lty = 2)
@@ -433,13 +429,13 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
     pch = pchalist[1:length(info)],
     col = colourlist[1:length(info)],
     bty = "n",
-    cex = 1.3
+    cex = 1.5
   )
   dev.off()
 
   #PLS 3D
   if (number > 2) {
-    pdf(file.path(path, "plsplot 3d.pdf"),
+    pdf(file.path(path, "pls score plot 3d.pdf"),
         width = width,
         height = height)
     scatterplot3d::scatterplot3d(
@@ -454,7 +450,7 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
       pch = pcha,
       box = FALSE,
       cex.symbol = cexa,
-      cex.lab = 1.3,
+      cex.lab = 1.5,
       cex.axis = 1.3,
       xlim = c(xmin, xmax),
       ylim = c(ymin, ymax),
@@ -466,7 +462,7 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
       pch = pchalist[1:length(info)],
       col = colourlist[1:length(info)],
       bty = "n",
-      cex = 1.3
+      cex = 1.5
     )
     dev.off()
   }

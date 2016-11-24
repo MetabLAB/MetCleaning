@@ -30,7 +30,7 @@ ReChangeGroup <- function(MetFlowData = MetFlowData,
     return(MetFlowData)}
   }
 
-browser()
+# browser()
 
   ##remove the NA from new.group inforamtion
   new.group <- new.group[which(!is.na(new.group[,"group"])), ]

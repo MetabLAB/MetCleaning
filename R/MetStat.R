@@ -78,7 +78,7 @@ MetStat <- function(MetFlowData = MetFlowData,
     save(met.data.rsd.filter, file = file.path(path.inter, "met.data.rsd.filter"))
 
     ##ReChangeGroup
-    if (new.group == T) {
+    if (new.group) {
       cat("---------------------------------------------------------------------\n")
       cat("Change group information\n")
       if (all(dir() != "new.group.csv")) stop("No new.group information!!!")
