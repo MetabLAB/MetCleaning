@@ -442,7 +442,7 @@ PLSanalysis <- function(MetFlowData = MetFlowData,
     pdf(file.path(path, "plsplot 3d.pdf"),
         width = width,
         height = height)
-    scatterplot3d(
+    scatterplot3d::scatterplot3d(
       x,
       y,
       z,

@@ -145,7 +145,7 @@ SXTpcaPlot <- function(SXTpcaData = SXTpcaData,
     abline(h = 0, lty = 2)
 
     #loading plot 3d
-    scatterplot3d(
+    scatterplot3d::scatterplot3d(
       loading[, 1],
       loading[, 2],
       loading[, 3],
@@ -340,7 +340,7 @@ SXTpcaPlot <- function(SXTpcaData = SXTpcaData,
     }
 
     #PCA 3D
-    scatterplot3d(x, y, z,
+    scatterplot3d::scatterplot3d(x, y, z,
                   color = colour,
                   xlab = paste("PC1:", pc1, sep = ""),
                   ylab = paste("PC2:", pc2, sep = ""),
