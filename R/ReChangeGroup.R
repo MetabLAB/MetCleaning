@@ -24,10 +24,13 @@ ReChangeGroup <- function(MetFlowData = MetFlowData,
   if(length(remove.name) != 0) {
   cat("The samples you want to remove from dataset are:\n")
   cat(remove.name)
+  right <- readline("Right(y) or wrong(n)?")
+  if (right == "n") {
+    cat("Please change your new group information again!")
+    return(MetFlowData)}
   }
 
-  right <- readLines("Right(y) or wrong(n)?")
-  if (right == "n") {return("Please change your new group information again!")}
+browser()
 
   ##remove the NA from new.group inforamtion
   new.group <- new.group[which(!is.na(new.group[,"group"])), ]

@@ -71,15 +71,8 @@ MetStat <- function(MetFlowData = MetFlowData,
     path.inter <- file.path(path, "intermediate")
     dir.create(path.inter)
 
-    ## RSD filtering
-    qc <- MetFlowData[["qc"]]
-    qc.rsd <- apply(qc, 1, function(x) {sd(x)*100/mean(x)})
-
-    var.index <- which(qc.rsd <= rsd.cutoff)
-    MetFlowData[["qc"]] <- MetFlowData[["qc"]][var.index,]
-    MetFlowData[["tags"]] <- MetFlowData[["tags"]][var.index,]
-    MetFlowData[["subject"]] <- MetFlowData[["subject"]][var.index,]
-
+    ##RSD filtering
+    MetFlowData <- RSDfilter(MetFlowData = MetFlowData, rsd.cutoff = rsd.cutoff)
     #save data
     met.data.rsd.filter <- MetFlowData
     save(met.data.rsd.filter, file = file.path(path.inter, "met.data.rsd.filter"))
