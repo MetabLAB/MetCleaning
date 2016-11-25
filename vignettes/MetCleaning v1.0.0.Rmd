@@ -14,7 +14,7 @@ vignette: |
 ******************************************
 ### *MetCleaning* provides an integrated and automatic pipeline for data cleaning and statistical analysis of large scale mass spectrometry (MS) based-metabolomic data. It includes missing value (MV) filtering and imputation, zero value filtering, data normalization, data integration, data quality assessment, univariate statistical analysis, multivariate statistical analysis such as PCA and PLS-DA, potential marker selection and show. This document describes how to use the integrated functions, *MetClean* and *MetStat* in *MetCleaning* utilizing demo data.
 
-![Figure1 Workflow of *MetCleaning*](workflow.tif)
+![Figure1 Workflow of *MetCleaning*](workflow for instruction.tif)
 
 ## **Installation and help**
 ******************************************
