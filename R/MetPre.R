@@ -262,7 +262,7 @@ MetPre <- function(#ImportData para
     #batch effect
     BatchEffectOverview(MetFlowData.before = met.data.zero.filter,
                         MetFlowData.after = met.data,
-                        path = file.path(path, "Batch effect"))
+                        path = file.path(path, "8Batch effect"))
 
     if(met.plot) {
       cat("---------------------------------------------------------------------\n")
@@ -270,7 +270,7 @@ MetPre <- function(#ImportData para
     #metabolite plot
     MetabolitePlot(MetFlowData.before = met.data.zero.filter,
                    MetFlowData.after = met.data,
-                   path = file.path(path, "8metabolite plot"))
+                   path = file.path(path, "9metabolite plot"))
     }
   }
 
@@ -279,12 +279,12 @@ MetPre <- function(#ImportData para
   #RSD分布
   RSDoverview(MetFlowData.before = met.data.zero.filter,
               MetFlowData.after = met.data,
-              path = file.path(path,"9RSD overview"))
+              path = file.path(path,"10RSD overview"))
 
   #data overview
   DataOverview(MetFlowData = met.data,
                feature.distribution = TRUE,
-               path = file.path("10Data overview"))
+               path = file.path("11Data overview"))
 
   #ouput data
   ExportData(MetFlowData = met.data,
