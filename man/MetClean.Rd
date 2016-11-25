@@ -29,22 +29,13 @@ cleaning.
 data(data, package = "MetCleaning")
 data(sample.information, package = "MetCleaning")
 data(new.group, package = "MetCleaning")
-data(ms2_1, package = "MetCleaning")
-data(ms2_2, package = "MetCleaning")
-data(ms2_3, package = "MetCleaning")
 ##create a folder for MetClean demo
 dir.create("Demo for MetClean")
 setwd("Demo for MetClean")
-dir.create("peak identification")
-path <- file.path(getwd(), "peak identification")
-dir.create(path)
 # export the demo data as csv
 write.csv(data, "data.csv", row.names = FALSE)
 write.csv(sample.information, "sample.information.csv", row.names = FALSE)
 write.csv(new.group, "new.group.csv", row.names = FALSE)
-write.csv(ms2_1, file.path(path, "ms2_1.csv"), row.names = FALSE)
-write.csv(ms2_2, file.path(path, "ms2_2.csv"), row.names = FALSE)
-write.csv(ms2_3, file.path(path, "ms2_3.csv"), row.names = FALSE)
 #run MetClean
 MetClean(#ImportData para
 data = "data.csv",
