@@ -46,7 +46,7 @@ DataNormalization <- function(MetFlowData = MetFlowData,
     path <- getwd()
   }
   # browser()
-  path1 <- file.path(path, "Normalization result")
+  path1 <- file.path(path, "7Normalization result")
   dir.create(path1)
 
   qc <- MetFlowData[["qc"]]

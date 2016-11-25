@@ -108,7 +108,7 @@ MetPre <- function(#ImportData para
   if (sum(is.na(subject)) != 0){
   #观察缺失值分布
   MZoverview(MetFlowData = met.data,
-             path = file.path(path,"MV overview"),
+             path = file.path(path,"1MV overview"),
              what = "mv")
 
   cat("---------------------------------------------------------------------\n")
@@ -118,7 +118,7 @@ MetPre <- function(#ImportData para
                        obs.per.cutoff = obs.mv.cutoff,
                        var.per.cutoff = var.mv.cutoff,
                        what = "mv",
-                       path = file.path(path,"MV filter"))
+                       path = file.path(path,"2MV filter"))
   #save data
   met.data.mv.filter <- met.data
   save(met.data.mv.filter, file = file.path(path.inter, "met.data.mv.filter"))
@@ -144,7 +144,7 @@ MetPre <- function(#ImportData para
   #观察零值分布
   MZoverview(MetFlowData = met.data,
              what = "zero",
-             path = file.path(path,"Zero overview"))
+             path = file.path(path,"3Zero overview"))
 
   cat("---------------------------------------------------------------------\n")
   cat("Zero filter...\n")
@@ -153,7 +153,7 @@ MetPre <- function(#ImportData para
                        obs.per.cutoff = obs.zero.cutoff,
                        var.per.cutoff = var.zero.cutoff,
                        what = "zero",
-                       path = file.path(path,"Zero filter"))
+                       path = file.path(path,"4Zero filter"))
   #save data
   met.data.zero.filter <- met.data
   save(met.data.zero.filter, file = file.path(path.inter, "met.data.zero.filter"))
@@ -200,7 +200,7 @@ MetPre <- function(#ImportData para
   if (all(dir("intermediate") != "met.data.qc.outlier.filter")) {
   met.data <- QCOutlierFilter(MetFlowData = met.data,
                               CI = 0.95,
-                              path = "QC outlier filter")
+                              path = "5QC outlier filter")
   met.data.qc.outlier.filter <- met.data
   save(met.data.qc.outlier.filter,
        file = file.path(path.inter,"met.data.qc.outlier.filter"))
@@ -237,7 +237,7 @@ MetPre <- function(#ImportData para
   if (all(dir("intermediate") != "met.data.subject.outlier.filter")) {
   met.data <- SubjectOutlierFilter(MetFlowData = met.data,
                                    CI = 0.95,
-                                   path = file.path("Subject outlier finder"))
+                                   path = file.path("6Subject outlier finder"))
   met.data.subject.outlier.filter <- met.data
   save(met.data.subject.outlier.filter,
        file = file.path(path.inter, "met.data.subject.outlier.filter"))
@@ -270,7 +270,7 @@ MetPre <- function(#ImportData para
     #metabolite plot
     MetabolitePlot(MetFlowData.before = met.data.zero.filter,
                    MetFlowData.after = met.data,
-                   path = file.path(path, "metabolite plot"))
+                   path = file.path(path, "8metabolite plot"))
     }
   }
 
@@ -279,12 +279,12 @@ MetPre <- function(#ImportData para
   #RSD分布
   RSDoverview(MetFlowData.before = met.data.zero.filter,
               MetFlowData.after = met.data,
-              path = file.path(path,"RSD overview"))
+              path = file.path(path,"9RSD overview"))
 
   #data overview
   DataOverview(MetFlowData = met.data,
                feature.distribution = TRUE,
-               path = file.path("Data overview"))
+               path = file.path("10Data overview"))
 
   #ouput data
   ExportData(MetFlowData = met.data,

@@ -1,0 +1,77 @@
+---
+title: "MetCleaning v1.0.0"
+author: "Xiaotao Shen and Zhengjiang Zhu"
+date: '`r Sys.Date()`'
+output:
+  html_document: default
+  pdf_document: default
+vignette: |
+  %\VignetteIndexEntry{Vignette Title} %\VignetteEngine{knitr::rmarkdown} %\VignetteEncoding{UTF-8}
+---
+
+## **Introduction**
+******************************************
+### MetCleaning provides an integrated and automatic pipeline for data cleaning and statistical analysis of large scale mass spectrometry (MS) based-metabolomic data. It includes missing value (MV) filtering and imputation, zero value filtering, data normalization, data integration, data quality assessment, univariate statistical analysis, multivariate statistical analysis such as PCA and PLS-DA, potential marker selection and show. This document describes how to use the integrated functions, MetPre and MetStat in MetCleaning utilizing demo data.
+
+![Figure1 Workflow of MetCleaning](workflow.tif)
+
+## **Installation and help**
+******************************************
+### *MetCleaning* is published in [github](https://github.com/jaspershen/MetCleaning). So you can install it according to github.
+
+####code 1: Installation of *MetCleaning*
+```{r, eval= FALSE}
+ if(!require(devtools)) {
+  install.packages("devtools")
+ }
+ library(devtools)
+ install_github("jaspershen/MetCleaning")
+ library(MetCleaning)
+ help(package = "MetCleaning")
+```
+
+## **Data cleaning**
+******************************************
+### Data cleaning is integrated as a function named as *MetPre* in *MetCleaning*. We use the demo data as the example. Copy the code below and paste in you R console.
+
+####code 2: Demo data of *MetCleaning*
+```{r, eval = FALSE}
+##demo data
+data(data, package = "MetCleaning")
+data(sample.information, package = "MetCleaning")
+##demo work directory
+dir.create("Demo for MetCleaning")
+setwd("Demo for MetCleaning")
+path <- file.path(getwd(), "peak identification")
+dir.create(path)
+##write files
+write.csv(data, "data.csv", row.names = FALSE)
+write.csv(sample.information , "sample.information.csv", row.names = FALSE)
+```
+
+### The demo data have been added in your work directory and organized in you work directory as Figure 2 shows. It contains two files, "data.csv" and "sample.information.csv".
+### 1. "data.csv" is the metabolomic dataset you want to process. Rows are features and columns are feature abundance of samples and tags of features. The information of features must contain "name" (feature name), "mz" (mass to change ratio) and "rt" (retention time). Other information of features are optional, for example "isotopes" and "adducts". The name of sample can contain ".", but cannot contain "-" and space. And the start of sample name cannot be number. **For example, "A210.a" and "A210a" are valid, and "210a" or "210-a" are invalid.**
+
+![Figure2 Data organisation of MetCleaning](data organisation.tif)
+
+### Then you can run *MetPre* function to do data cleaning of data. All the arguments of *MetPre* can be found in the other functions in *MetCleaning*. You can use *help(package = "MetCleaning")* to see the help page of *MetCleaning*. 
+
+####code 3: Running of *MetPre*
+```{r, eval = FALSE}
+##demo data
+MetPre(polarity = "positive")
+```
+
+### Then you can run *MetPre* function to do data cleaning of data. All the arguments of *MetPre* can be found in the other functions in *MetCleaning*. You can use *help(package = "MetCleaning")* to see the help page of *MetCleaning*. 
+
+###Running results of *MetPre*
+#### 1.Missing or zero values filtering. In the missing or zero value filtering step, if there are samples which beyond the threshold you set, you should decide to filter them or not. We recommend to remove them all as Figure 3 shows.
+
+![Figure3 Missing or zero value filtering](mv filter.png)
+
+#### 2.Sample filtering. In the QC or subject sample filtering step (based on PCA), if there are samples which beyond the threshold you set, you should decide to filter them or not. We don't recommend to remove them all as Figure 4 shows, because they should be consired by combining other information.
+
+![Figure4 Sample filtering](sample filter.png)
+
+#### 3.Output files. 
+
