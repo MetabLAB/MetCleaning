@@ -6,6 +6,8 @@
 #' @param parameters All the parameters can be found in others functions.
 #' @return All the results can be got form other functions and instruction.
 #' @export
+#' @details #' @details The manual of MetCleaning can be found in \href{https://github.com/jaspershen/MetCleaning/blob/master/vignettes/MetCleaning.pdf}{github}
+#' or in \href{https://www.readcube.com/library/fe13374b-5bc9-4c61-9b7f-6a354690947e:d8b5fcff-c725-4689-a97d-7ff106322fb6}{my library}.
 #' @examples
 #' \dontrun{
 #' ## load the demo data
