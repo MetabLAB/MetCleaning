@@ -93,7 +93,7 @@ MetClean(polarity = "positive")
 
 ## **Statistical analysis**
 ******************************************
-### Data statistical is integrated as a function named as *MetStat* in *MetCleaning*. We use the demo data as the example. **Please note that now *MetStat* can only process two class data.** Copy the code below and paste in you R console.
+### Data statistical analysis is integrated as a function named as *MetStat* in *MetCleaning*. We use the demo data as the example. **Please note that now *MetStat* can only process two class data.** Copy the code below and paste in you R console.
 
 ####code 4: Demo data of *MetStat*
 ```{r, eval = FALSE}
