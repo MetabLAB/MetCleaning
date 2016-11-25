@@ -122,7 +122,7 @@ MetStat(MetFlowData = met.data.after.pre, new.group = TRUE)
 
 #### 2.Number of component selection in PLS-DA analysis. In PLS-DA analysis, you should manually select the best choice of the number of component. When the Console show "How many comps do you want to see?", you can type 10 and enter "Enter" key. Then a MSE plot is showing, and the best number of component is the one has the smallest CV values. So type the number (in this example is 4) and enter "Enter" key.
 
-![Figure8 Number of component selction in PLS-DA analysis](PLS analysis.tif)
+![Figure8 Number of component selection in PLS-DA analysis](PLS analysis.tif)
 
 #### 3.Output files. Output files of *MetStat* are listed as Figure 9 shows.
 ##### (1) "12PCA analysis" is the PCA score plot.
