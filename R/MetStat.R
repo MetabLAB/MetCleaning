@@ -17,7 +17,10 @@
 #'## export the demo data as csv
 #'write.csv(new.group, "new.group.csv", row.names = FALSE)
 #'## run MetStat
-#'MetStat(MetFlowData = met.data.after.pre, new.group = TRUE)
+#'MetStat(MetFlowData = met.data.after.pre,
+#'new.group = TRUE,
+#'xlim1 = c(-40, 40),
+#'ylim1 = c(-40, 40))
 #' }
 
 MetStat <- function(MetFlowData = MetFlowData,
@@ -28,6 +31,8 @@ MetStat <- function(MetFlowData = MetFlowData,
                     #PCA analysis para
                     QC = TRUE,
                     scale.method = "auto",
+                    xlim1 = NULL,
+                    ylim1 = NULL,
                     #PLS analysis para
                     plsmethod = "plsr",
                     #FoldChange para
@@ -99,7 +104,9 @@ MetStat <- function(MetFlowData = MetFlowData,
       QC = QC,
       log.scale = log.scale,
       scale.method = scale.method,
-      path = file.path(path, "PCA analysis")
+      path = file.path(path, "12PCA analysis"),
+      xlim1 = xlim1,
+      ylim1 = ylim1
     )
   }
 
@@ -112,10 +119,12 @@ MetStat <- function(MetFlowData = MetFlowData,
       log.scale = log.scale,
       scalemethod = scale.method,
       path = file.path(path, "PLS analysis"),
-      plsmethod = plsmethod
+      plsmethod = plsmethod,
+      xlim1 = xlim1,
+      ylim1 = ylim1
     )
 
-    load(file.path(path, "PLS analysis", "vip"))
+    load(file.path(path, "13PLS analysis", "vip"))
     vip <- apply(vip, 2, mean)
   }
 
@@ -136,7 +145,7 @@ MetStat <- function(MetFlowData = MetFlowData,
     variable = variable,
     Group = Group,
     scale.method = scale.method,
-    path = file.path(path, "heat map")
+    path = file.path(path, "14heat map")
   )
 
   if (fc) {
@@ -177,7 +186,7 @@ MetStat <- function(MetFlowData = MetFlowData,
     foldchange.cutoff = foldchange.cutoff,
     p.cutoff = p.cutoff,
     vip.cutoff = vip.cutoff,
-    path = file.path(path, "marker selection")
+    path = file.path(path, "15marker selection")
   )
   #save data
   met.data.after.stat <- met.data
@@ -209,7 +218,7 @@ MetStat <- function(MetFlowData = MetFlowData,
     foldchange.cutoff = foldchange.cutoff,
     p.cutoff = p.cutoff,
     vip.cutoff = vip.cutoff,
-    path = file.path(path, "marker selection")
+    path = file.path(path, "15marker selection")
   )
 
   ##MarkerShow
@@ -218,7 +227,7 @@ MetStat <- function(MetFlowData = MetFlowData,
   MarkerShow(
     MetFlowData = met.data,
     beeswarm = beeswarm,
-    path = file.path(path, "marker selection")
+    path = file.path(path, "15marker selection")
   )
   options(warn = 0)
 

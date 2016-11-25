@@ -5,9 +5,9 @@
 \title{MetStat}
 \usage{
 MetStat(MetFlowData = MetFlowData, new.group = TRUE, rsd.cutoff = 30,
-  log.scale = FALSE, QC = TRUE, scale.method = "auto",
-  plsmethod = "plsr", fc = TRUE, to = c("case", "control"),
-  ratio = "median", test.method = "t", adjust.method = "fdr",
+  log.scale = FALSE, QC = TRUE, scale.method = "auto", xlim1 = NULL,
+  ylim1 = NULL, plsmethod = "plsr", fc = TRUE, to = c("case",
+  "control"), ratio = "median", test.method = "t", adjust.method = "fdr",
   foldchange = "foldchange", p = "p", vip = "vip",
   foldchange.cutoff = c(4/3, 3/4), p.cutoff = 0.05, vip.cutoff = 0,
   x = "foldchange", y = "p", z = "vip", col = c("black", "firebrick1"),
@@ -36,7 +36,10 @@ setwd("Demo for MetStat")
 ## export the demo data as csv
 write.csv(new.group, "new.group.csv", row.names = FALSE)
 ## run MetStat
-MetStat(MetFlowData = met.data.after.pre, new.group = TRUE)
+MetStat(MetFlowData = met.data.after.pre,
+new.group = TRUE,
+xlim1 = c(-40, 40),
+ylim1 = c(-40, 40))
 }
 }
 \author{
