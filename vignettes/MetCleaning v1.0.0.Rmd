@@ -12,7 +12,7 @@ vignette: |
 
 ## **Introduction**
 ******************************************
-### *MetCleaning* provides an integrated and automatic pipeline for data cleaning and statistical analysis of large scale mass spectrometry (MS) based-metabolomic data. It includes missing value (MV) filtering and imputation, zero value filtering, data normalization, data integration, data quality assessment, univariate statistical analysis, multivariate statistical analysis such as PCA and PLS-DA, potential marker selection and show. This document describes how to use the integrated functions, *MetPre* and *MetStat* in *MetCleaning* utilizing demo data.
+### *MetCleaning* provides an integrated and automatic pipeline for data cleaning and statistical analysis of large scale mass spectrometry (MS) based-metabolomic data. It includes missing value (MV) filtering and imputation, zero value filtering, data normalization, data integration, data quality assessment, univariate statistical analysis, multivariate statistical analysis such as PCA and PLS-DA, potential marker selection and show. This document describes how to use the integrated functions, *MetClean* and *MetStat* in *MetCleaning* utilizing demo data.
 
 ![Figure1 Workflow of *MetCleaning*](workflow.tif)
 
@@ -40,9 +40,9 @@ source("http://bioconductor.org/biocLite.R")
 
 ## **Data cleaning**
 ******************************************
-### Data cleaning is integrated as a function named as *MetPre* in *MetCleaning*. We use the demo data as the example. Copy the code below and paste in you R console.
+### Data cleaning is integrated as a function named as *MetClean* in *MetCleaning*. We use the demo data as the example. Copy the code below and paste in you R console.
 
-####code 2: Demo data of *MetPre*
+####code 2: Demo data of *MetClean*
 ```{r, eval = FALSE}
 ##demo data
 data(data, package = "MetCleaning")
@@ -61,15 +61,15 @@ write.csv(sample.information , "sample.information.csv", row.names = FALSE)
 
 ![Figure2 Data organisation of MetCleaning](data organisation.tif)
 
-### Then you can run *MetPre* function to do data cleaning of data. All the arguments of *MetPre* can be found in the other functions in *MetCleaning*. You can use *help(package = "MetCleaning")* to see the help page of *MetCleaning*. 
+### Then you can run *MetClean* function to do data cleaning of data. All the arguments of *MetClean* can be found in the other functions in *MetCleaning*. You can use *help(package = "MetCleaning")* to see the help page of *MetCleaning*. 
 
-####code 3: Running of *MetPre*
+####code 3: Running of *MetClean*
 ```{r, eval = FALSE}
 ##demo data
-MetPre(polarity = "positive")
+MetClean(polarity = "positive")
 ```
 
-###Running results of *MetPre*
+###Running results of *MetClean*
 #### 1.Missing or zero values filtering. In the missing or zero value filtering step, if there are samples which beyond the threshold you set, you should decide to filter them or not. We recommend to remove all of them as Figure 3 shows.
 
 ![Figure3 Missing or zero value filtering](mv filter.png)
@@ -78,7 +78,7 @@ MetPre(polarity = "positive")
 
 ![Figure4 Sample filtering](sample filter.png)
 
-#### 3.Output files. Output files of *MetPre* are listed as Figure 5 shows.
+#### 3.Output files. Output files of *MetClean* are listed as Figure 5 shows.
 ##### (1) "1MV overview", "2MV filter", "3Zero overview" and "4Zero filter" are missing and zero values filtering information.
 ##### (2) "5QC outlier filter" and "6Subject outlier filter" are sample filtering based on PCA information.
 ##### (3) "7Normalization result" is the data normalization information for each batch.
@@ -89,7 +89,7 @@ MetPre(polarity = "positive")
 ##### (8) **"data_after_pre.csv", "qc.info.csv" and "subject.info"** are the data and sample information after data cleaning.
 ##### (9) "intermediate" is the intermediate data during processing.
 
-![Figure5 Output files of *MetPre*](output files of MetPre.tif)
+![Figure5 Output files of *MetClean*](output files of MetClean.tif)
 
 ## **Statistical analysis**
 ******************************************
@@ -127,9 +127,9 @@ MetStat(MetFlowData = met.data.after.pre, new.group = TRUE)
 #### 3.Output files. Output files of *MetStat* are listed as Figure 9 shows.
 ##### (1) "12PCA analysis" is the PCA score plot.
 ##### (2) "13PLS analysis" contains the PLS-DA results.
-##### (5) "14heatmap" is the heatmap.
-##### (6) "15marker selection" contains the information of markers, volcano plot and boxplots of markers.
-##### (7) **"data_after_stat.csv", "qc.info.csv" and "subject.info"** are the data and sample information after statistical analysis.
-##### (8) "intermediate" is the intermediate data during processing.
+##### (3) "14heatmap" is the heatmap.
+##### (4) "15marker selection" contains the information of markers, volcano plot and boxplots of markers.
+##### (5) **"data_after_stat.csv", "qc.info.csv" and "subject.info"** are the data and sample information after statistical analysis.
+##### (6) "intermediate" is the intermediate data during processing.
 
 ![Figure9 Output files of *MetStat*](output files of MetStat.tif)

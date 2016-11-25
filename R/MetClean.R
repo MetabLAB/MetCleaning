@@ -1,4 +1,4 @@
-#' @title MetPre
+#' @title MetClean
 #' @description A whole work flow for high throughput MS based metabolomics data
 #'cleaning.
 #' @author Xiaotao Shen
@@ -15,9 +15,9 @@
 #' data(ms2_1, package = "MetCleaning")
 #' data(ms2_2, package = "MetCleaning")
 #' data(ms2_3, package = "MetCleaning")
-#' ##create a folder for MetPre demo
-#' dir.create("Demo for MetPre")
-#' setwd("Demo for MetPre")
+#' ##create a folder for MetClean demo
+#' dir.create("Demo for MetClean")
+#' setwd("Demo for MetClean")
 #' dir.create("peak identification")
 #' path <- file.path(getwd(), "peak identification")
 #' dir.create(path)
@@ -28,8 +28,8 @@
 #' write.csv(ms2_1, file.path(path, "ms2_1.csv"), row.names = FALSE)
 #' write.csv(ms2_2, file.path(path, "ms2_2.csv"), row.names = FALSE)
 #' write.csv(ms2_3, file.path(path, "ms2_3.csv"), row.names = FALSE)
-#' #run MetPre
-#' MetPre(#ImportData para
+#' #run MetClean
+#' MetClean(#ImportData para
 #' data = "data.csv",
 #' sample.information = "sample.information.csv",
 #' polarity = "positive",
@@ -38,7 +38,7 @@
 #' threads = 2)
 #' }
 
-MetPre <- function(#ImportData para
+MetClean <- function(#ImportData para
                    data = "data.csv",
                    sample.information = "sample.information.csv",
                    polarity = "positive",
@@ -296,7 +296,7 @@ MetPre <- function(#ImportData para
   met.data.after.pre <- met.data
   save(met.data.after.pre, file = file.path(path, "met.data.after.pre"))
   cat("---------------------------------------------------------------------\n")
-  cat("MetPre is done!!!\n")
+  cat("MetClean is done!!!\n")
   options(warn = 0)
 }
 
