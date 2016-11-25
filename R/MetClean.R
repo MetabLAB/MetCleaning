@@ -13,14 +13,12 @@
 #' #load the demo data
 #' data(data, package = "MetCleaning")
 #' data(sample.information, package = "MetCleaning")
-#' data(new.group, package = "MetCleaning")
 #' ##create a folder for MetClean demo
 #' dir.create("Demo for MetClean")
 #' setwd("Demo for MetClean")
 #' # export the demo data as csv
 #' write.csv(data, "data.csv", row.names = FALSE)
 #' write.csv(sample.information, "sample.information.csv", row.names = FALSE)
-#' write.csv(new.group, "new.group.csv", row.names = FALSE)
 #' #run MetClean
 #' MetClean(#ImportData para
 #' data = "data.csv",

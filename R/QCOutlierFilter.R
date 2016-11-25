@@ -44,7 +44,7 @@ QCOutlierFilter <- function(MetFlowData = MetFlowData,
         temp.qc <- temp.qc
       } else {
         temp.idx <- strsplit(temp.idx, split = ",")
-        temp.idx <- as.numeric(temp.idx)
+        temp.idx <- as.numeric(temp.idx[[1]])
         temp.idx <- as.numeric(temp.idx)
         temp.qc <- temp.qc[, -temp.idx]
       }

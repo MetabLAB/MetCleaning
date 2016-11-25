@@ -28,7 +28,8 @@ SubjectOutlierFilter <- function(MetFlowData = MetFlowData,
     temp.subject <- subject1[[i]]
     temp.idx <- obs.remove[[i]]
     if (length(temp.idx) != 0) {
-      cat("Subject shoulde be removed are:")
+      browser()
+       cat("Subject shoulde be removed are:")
       cat(temp.idx)
       cat("\n")
       temp.idx <-
@@ -37,12 +38,12 @@ SubjectOutlierFilter <- function(MetFlowData = MetFlowData,
           and separate them using comma,
           if you don't want to remove any subject, please type n):"
         )
-      # browser()
+
       if (temp.idx == "n") {
         temp.subject <- temp.subject
       } else {
         temp.idx <- strsplit(temp.idx, split = ",")
-        temp.idx <- as.numeric(temp.idx)
+        temp.idx <- as.numeric(temp.idx[[1]])
         temp.idx <- as.numeric(temp.idx)
         temp.subject <- temp.subject[, -temp.idx]
       }
