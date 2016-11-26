@@ -64,14 +64,17 @@ SubjectOutlierFilter <- function(MetFlowData = MetFlowData,
   ##remove subject information who have been removed from data
   subject.name <- colnames(subject2)
   subject.info <- metData[["subject.info"]]
+  subject.order <- metData[["subject.order"]]
   subject.index <- which(is.na(match(subject.info[, 1], subject.name)))
 
   if (length(subject.index) != 0) {
     subject.info <- subject.info[-subject.index, ]
+    subject.order <- subject.order[-subject.index]
   }
 
   metData[["subject.info"]] <- subject.info
   metData[["subject"]] <- subject2
+  metData[["subject.order"]] <- subject.order
   metData[["subject.outlier.filter"]] <- "yes"
   return(metData)
 

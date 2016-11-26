@@ -65,14 +65,17 @@ QCOutlierFilter <- function(MetFlowData = MetFlowData,
   ##remove QC information who have been removed from data
   qc.name <- colnames(qc2)
   qc.info <- metData[["qc.info"]]
+  qc.order <- metData[["qc.order"]]
   qc.index <- which(is.na(match(qc.info[, 1], qc.name)))
 
   if (length(qc.index) != 0) {
     qc.info <- qc.info[-qc.index, ]
+    qc.order <- qc.order[-qc.index]
   }
 
   metData[["qc.info"]] <- qc.info
   metData[["qc"]] <- qc2
+  metData[["qc.order"]] <- qc.order
   metData[["qc.outlier.filter"]] <- "yes"
   return(metData)
 
