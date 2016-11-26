@@ -13,11 +13,14 @@
 #' ## load the demo data
 #'data(met.data.after.pre, package = "MetCleaning")
 #'data(new.group, package = "MetCleaning")
+#'
 #'##create a folder for MetStat demo
 #'dir.create("Demo for MetStat")
 #'setwd("Demo for MetStat")
+#'
 #'## export the demo data as csv
 #'write.csv(new.group, "new.group.csv", row.names = FALSE)
+#'
 #'## run MetStat
 #'MetStat(MetFlowData = met.data.after.pre,
 #'new.group = TRUE,

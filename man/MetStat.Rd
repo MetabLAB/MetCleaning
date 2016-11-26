@@ -34,11 +34,14 @@ or in \href{https://www.readcube.com/library/fe13374b-5bc9-4c61-9b7f-6a354690947
 ## load the demo data
 data(met.data.after.pre, package = "MetCleaning")
 data(new.group, package = "MetCleaning")
+
 ##create a folder for MetStat demo
 dir.create("Demo for MetStat")
 setwd("Demo for MetStat")
+
 ## export the demo data as csv
 write.csv(new.group, "new.group.csv", row.names = FALSE)
+
 ## run MetStat
 MetStat(MetFlowData = met.data.after.pre,
 new.group = TRUE,
