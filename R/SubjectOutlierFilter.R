@@ -10,7 +10,7 @@
 SubjectOutlierFilter <- function(MetFlowData = MetFlowData,
                                  CI = 0.95,
                                  path = NULL) {
-  browser()
+  # browser()
   SubjectOutlierFiderData <- SubjectOutlierFinder(MetFlowData = MetFlowData,
                                         CI = CI,
                                         path = path)

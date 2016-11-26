@@ -19,7 +19,7 @@ MetabolitePlot <- function(MetFlowData.before = MetFlowData1,
     dir.create(path)
   }
 
-  browser()
+  # browser()
   qc_bef <- MetFlowData.before[["qc"]]
   subject_bef <- MetFlowData.before[["subject"]]
   tags_bef <- MetFlowData.before[["tags"]]
@@ -39,8 +39,11 @@ MetabolitePlot <- function(MetFlowData.before = MetFlowData1,
   subject.info_aft1 <- data_aft[[3]]
   qc.info_aft1 <- data_aft[[4]]
 
-  subject.order <- as.numeric(MetFlowData.before[["subject.order"]])
-  qc.order <- as.numeric(MetFlowData.before[["qc.order"]])
+  subject.order1 <- as.numeric(MetFlowData.before[["subject.order"]])
+  qc.order1 <- as.numeric(MetFlowData.before[["qc.order"]])
+
+  subject.order2 <- as.numeric(MetFlowData.after[["subject.order"]])
+  qc.order2 <- as.numeric(MetFlowData.after[["qc.order"]])
   feature.name <- as.character(tags_bef[, "name"])
 
   cat("Draw metabolite plot (%)\n")
@@ -61,7 +64,7 @@ MetabolitePlot <- function(MetFlowData.before = MetFlowData1,
     par(mar = c(5, 5, 4, 2))
     ## before
     plot(
-      subject.order,
+      subject.order1,
       as.numeric(subject_bef[i, ]),
       xlab = "Injection order",
       ylab = "Intensity",
@@ -71,7 +74,7 @@ MetabolitePlot <- function(MetFlowData.before = MetFlowData1,
       cex.axis = 1.3,
       main = "Before"
     )
-    points(qc.order,
+    points(qc.order1,
            as.numeric(qc_bef[i, ]),
            pch = 19,
            col = "firebrick1")
@@ -81,7 +84,7 @@ MetabolitePlot <- function(MetFlowData.before = MetFlowData1,
     }
     ## after
     plot(
-      subject.order,
+      subject.order2,
       as.numeric(subject_aft[i, ]),
       xlab = "Injection order",
       ylab = "Intensity",
@@ -91,7 +94,7 @@ MetabolitePlot <- function(MetFlowData.before = MetFlowData1,
       cex.axis = 1.3,
       main = "After"
     )
-    points(qc.order,
+    points(qc.order2,
            as.numeric(qc_aft[i, ]),
            pch = 19,
            col = "firebrick1")
