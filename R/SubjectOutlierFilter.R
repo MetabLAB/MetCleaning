@@ -28,7 +28,7 @@ SubjectOutlierFilter <- function(MetFlowData = MetFlowData,
     temp.subject <- subject1[[i]]
     temp.idx <- obs.remove[[i]]
     if (length(temp.idx) != 0) {
-      browser()
+      # browser()
        cat("Subject shoulde be removed are:")
       cat(temp.idx)
       cat("\n")
