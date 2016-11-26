@@ -19,7 +19,7 @@ MetabolitePlot <- function(MetFlowData.before = MetFlowData1,
     dir.create(path)
   }
 
-  # browser()
+  browser()
   qc_bef <- MetFlowData.before[["qc"]]
   subject_bef <- MetFlowData.before[["subject"]]
   tags_bef <- MetFlowData.before[["tags"]]
