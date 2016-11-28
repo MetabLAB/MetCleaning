@@ -24,3 +24,4 @@ source("http://bioconductor.org/biocLite.R")
 ```
 
 ## **Note of version1.0.0**
+(1) Add RT correction to peak identification function.
